@@ -88,7 +88,7 @@ class Book:
             existing_Genre = input("What genre's would you like to update: ")
             new_Genre = input("What Genre would you like to put in place: ")
             for book in cls.keep:
-                if book.genre.lower() == existing_Genre:
+                if book.genre.lower() == existing_Genre.lower():
                     book.genre = new_Genre
                     print(f"The Genre {existing_Genre} has been updated to {new_Genre}")
                 else:
@@ -141,10 +141,12 @@ class Book:
     @classmethod
     def delete_by_genre(cls):
         genre_D = input("What genre of books would you look to delete: ")
-        for genres in cls.keep:
-            if genres.genre.lower() == genre_D.lower():
-                cls.keep.remove(genres)
-                print(f"The books in genre {genre_D} have been deleted!")
+        checker = input("Confirm name of genre")
+        if genre_D.lower() == checker.lower():
+            for genres in cls.keep:
+                if genres.genre.lower() == genre_D.lower():
+                    cls.keep.remove(genres)
+                    print(f"The books in genre {genre_D} have been deleted!")
             
 
     #this is a magic method that allows the contents of a class to be shown in a more user friendly way.   
@@ -160,7 +162,7 @@ book6 = Book("Ande and Up", "Amanda Falls", "239-000-02101", "Humor", 2016)
 book7 = Book("Can't we fly", "Camila Stens", "124-444-121-554","Novel", 2013)
 book8 = Book("Marie in wheels", "Kristie Phalms", "233-3213-342", "Humor", 2016)
 
-#Book.delete_by_ISBN()
+#Book.delete_by_genre()
 #print(Book.keep)
 
 
@@ -169,6 +171,7 @@ book8 = Book("Marie in wheels", "Kristie Phalms", "233-3213-342", "Humor", 2016)
 #Member Class(Handling the members in the library)
 class Member:
     mem = []
+
     def __init__(self, name:str, membership_ID:str, phone: str):
         #assert to handle exceptions
         assert len(name) >= 3, f"Name should be longer"
@@ -204,12 +207,10 @@ class Member:
         if update_member.lower() == 'n':
             existing_membername = input("What Member's name would you like to update: ")
             new_member_name = input("What name would you like to change it to: ")
-            for name in cls.mem:
-                if name.name.lower() == existing_membername.lower():
-                    name.name = new_member_name
+            for names in cls.mem:
+                if names.name.lower() == existing_membername.lower():
+                    names.name = new_member_name
                     print(f"{existing_membername} has been changed to {new_member_name}")
-                else:
-                    print(f"The given name {existing_ID} cannot be found.")
 
 
         elif update_member.lower() == 'm':
@@ -219,19 +220,17 @@ class Member:
                 if ID.membership_ID.lower() == existing_ID.lower():
                     ID.membership_ID = new_member_ID
                     print(f"{existing_ID} has been updated in {new_member_ID}")
-                else:
-                    print(f"{existing_ID} can't be found")
+                
         
         elif update_member.lower() =='P':
             existing_Phone = input("what existing phone number would you like to change: ")
             new_phone = input("What is the new phone number you'll like to put it with: ")
 
-            for phone in cls.mem:
-                if phone.phone.lower() == existing_Phone.lower():
-                    phone.phone = new_phone
+            for phones in cls.mem:
+                if phones.phone.lower() == existing_Phone.lower():
+                    phones.phone = new_phone
                     print(f"The number{existing_Phone} has been updated to {new_phone}")
-                else:
-                    print(f"{existing_Phone} can't be found.")
+               
 
         else:
             print(f"Your chosen choice is mostly likely wrong.")
@@ -255,32 +254,22 @@ class Member:
         if delete_option.lower() == 'ne':
             mem_del = input("Type in Member's name: ")
             confirm_del = input("Type in name again for confirmation it will delete all member's details- ")
-        
-            for member in cls.mem:
-                
-                if mem_del.lower() == confirm_del.lower():    
+           
+            if mem_del.lower() == confirm_del.lower():  
+                for member in cls.mem:  
                     if member.name.lower() == mem_del.lower():
                         cls.mem.remove(member)
-                    else:
-                        return f"{mem_del} not found"
-                        
-                else:
-                    print("It does not match previous name, try again!")
-       
+    
+                           
         elif delete_option.lower() == 'id':
             mem_del_ID = input("Type in Member's ID: ")
             confirm_del_ID = input("Type in ID again for confirmation it will delete all member's details- ")
-            for members in cls.mem:
-                
-                if mem_del_ID.lower() == confirm_del_ID.lower():
-
+            
+            if mem_del_ID.lower() == confirm_del_ID.lower():
+                for members in cls.mem:
                     if members.membership_ID.lower() == mem_del_ID.lower():
                         cls.mem.remove(members)
-                    else:
-                        return f"{mem_del_ID} not found"
-                else:
-                    print("Confirmation Failed!")
-
+            
         elif delete_option.lower() ==  'pe':
             mem_del_phone = input("Type in Phone details: ")
             confirm_del_phone = input("Type in Phone again for confirmation it will delete all member's details- ")
@@ -290,10 +279,7 @@ class Member:
 
                     if members.phone.lower() == mem_del_phone.lower():
                         cls.mem.remove(members)
-                    else:
-                        return f"{mem_del_phone} not found"
-                else:
-                    print("confirmation failed!")
+        
         else:
             print("Option you put in is not valid try again")
         
@@ -305,7 +291,3 @@ class Member:
 member1 = Member("Clint Amore", "Y2-1302", "0129284682")
 member2 = Member("Dyche Xera", "Y2-2139","1203839182")
 member3 = Member("Bakes Sam", "Y3-1239", "2103484761")
-
-
-Member.delete_members()
-print(Member.mem)
