@@ -36,7 +36,7 @@ class Lms:
                 print(f"This book is already issued to {self.books_dict [books_Id] ['Lender_name']} on {self.books_dict [books_Id] ['Issue_date']}")
                 return self.Issue_books
             elif self.books_dict [books_Id]["Status"] == 'Available':
-                your_name = input("Please enter you name")
+                your_name = input("Please enter you name: ")
                 self.books_dict [books_Id] ["Lender_name"] = your_name
                 self.books_dict [books_Id] ["Issue_date"] = current_date
                 self.books_dict [books_Id] ["Status"] = "Not Available"
