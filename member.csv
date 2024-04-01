@@ -1,4 +1,4 @@
-Member name,Member_ID,hone_details,Email
+Member_name,Member_ID,phone_details,Email
 Samuel Max,Y2-120,1234567890,samuelmax@lib.com
 Jane Bux,Y2-122,3456789012,janeb@lib.com
 Lisa Zam,Y2-124,9813483043,lisaz@lib.com
@@ -15,4 +15,3 @@ Xuid Oero,Y2-190,24850285022,xreod@lib.com
 Yeath Bip,Y2-167,2398537201,yeabip@lib.com
 Erin Will,Y2-231,3492103405,er3will@lib.com
 Sam flint,Y2-111,4692629057,sam@lib.com
-christopher flint,Y2-124, 48297570284,chris@lib.com

@@ -1,3 +1,10 @@
+""""
+Some other way of trying to build the library management system but with class methods!
+
+
+This is not really clear!
+"""
+
 #Library management system allowing users to manage books, library members and transactions effectively
 
 #Book Class

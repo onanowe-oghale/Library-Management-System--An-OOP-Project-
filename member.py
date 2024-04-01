@@ -19,11 +19,11 @@ class Member:
                 self.mem_dict.update({str(user_key) : {"name":line[0], "member_ID":line[1], "phone_details":line[2], "email":line[3]}})
                 user_key = user_key + 5
 
-    def load_members(self):
+    def member_details(self):
         print("\t\t--------_______Welcome_________--------")
         
         for keys, values in self.mem_dict.items():
-            print(f"{keys}\t\t  {values['name']} -{values['member_ID']} \t -{values['phone_details']} \t  -{values['email']}")
+            print(f"{keys} \t  {values['name']} \t -{values['member_ID']} \t -{values['phone_details']} \t  -{values['email']}")
 
     def search_members(self):
         print("Member Is To be identified by their name!\n")
